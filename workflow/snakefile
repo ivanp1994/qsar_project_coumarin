@@ -1,0 +1,52 @@
+import os
+for directory in ["results/smiles","results/described","results/models"]:
+    os.makedirs(directory,exist_ok=True)
+
+rule all:
+    input:
+        expand("results/models/{model}_predicted.csv",model=["pls","lasso","ridge","linear"]),
+        expand("results/models/{model}_parameters.csv",model=["pls","lasso","ridge","linear"])
+
+rule smilerize_molecules:
+    input:
+        x = "config/experimental_data.csv",
+        p = "config/randomizer_parameters.json"
+    output:
+        o1 = "results/smiles/new_molecules.csv",
+        o2 = "results/smiles/old_molecules.csv",
+    conda:
+        "model_env"
+    shell:
+        """
+        python scripts/smilerize_molecules.py -x {input.x} -p {input.p} -o1 {output.o1} -o2 {output.o2}
+        """
+
+rule describe_molecules:
+    input:
+        "results/smiles/{var}_molecules.csv"
+    output:
+        "results/described/{var}_molecules.csv"
+    conda:
+        "mordred_env"
+    shell:
+        """
+        python scripts/describe_molecules.py -i {input} -o {output}
+        """
+
+rule predict_activity:
+    input:
+        new = "molecules/described/new_molecules.csv",
+        old = "molecules/described/old_molecules.csv",
+        x = "config/experimental_data.csv",
+        p = "config/model_parameters.json",
+    threads:
+        1
+    output:
+        predic = "results/models/{model}_predicted.csv",
+        pars = "results/models/{model}_parameters.csv"
+    conda:
+        "model_env"
+    shell:
+        """
+        python scripts/predict_activity.py -f {input.old} -y {input.x} -new {input.new} -threads {threads} -p {input.p} -mod_pred {output.predic} -mod_pars {output.pars}
+        """

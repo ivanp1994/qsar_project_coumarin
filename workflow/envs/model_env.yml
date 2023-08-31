@@ -1,0 +1,12 @@
+name: model_env
+channels:
+  - defaults
+dependencies:
+  - python=3.8.12
+  - numpy=1.20.3
+  - pandas=1.4.1
+  - scipy=1.7.3
+  - pip
+  - pip:
+    - scikit-learn==1.0.2
+    - pingouin==0.2.2

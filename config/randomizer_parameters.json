@@ -1,0 +1,1 @@
+{"molecule_1": {"base": "coumarin", "positions": [3, 4, 5, 6, 7], "min_sub": 1, "max_sub": 3, "subs": ["acetyl", "bromo", "hydroxy", "benzoyl", "cyano", "ethoxy", "methoxy", "phenyl", "ethoxycarbonyl", "methoxycarbonyl", "dihydroxyamino"], "n_molecules": 1000}}
