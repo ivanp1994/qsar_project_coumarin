@@ -56,10 +56,10 @@ post_params = {"min_fitness":0.5,
 
 
 with open("config/randomizer_parameters.json", "w") as write_file:
-    json.dump(molecule_data, write_file)
+    json.dump(molecule_data, write_file, indent=5)
 
 with open("config/model_parameters.json","w") as write_file:
     json.dump({"pre_params":pre_params,
                "genalg_params":genalg_params,
                "post_params":post_params},
-              write_file)
+              write_file, indent=5)
