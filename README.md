@@ -1,4 +1,4 @@
-The project for the "Modeling biologically important molecules and their complexes" [course](https://mobi.unios.hr/en/predmeti/modeliranje-bioloski-vaznih-molekula-i-njihovih-kompleksa-2204/),Bioinformatics module.
+The project for the "Modeling biologically important molecules and their complexes" [course](https://mobi.unios.hr/en/predmeti/modeliranje-bioloski-vaznih-molekula-i-njihovih-kompleksa-2204/) of the Bioinformatics module.
 
 The task of this project was to retrace the steps of the paper [Coumarin Derivatives Act as Novel Inhibitors of Human Dipeptidyl Peptidase III: Combined In Vitro and In Silico Study](https://www.mdpi.com/1424-8247/14/6/540) related to QSAR.
 Briefly, the paper studies the ability of coumarin derivates to inhibit Dipeptidyl Peptidase III. Based on this ability, they use principles of QSAR to search for another batch of coumarin derivates that have high hDP3 inhibitory potential.
